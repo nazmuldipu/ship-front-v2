@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row ">
+        <div class="offset-md-1"></div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <hotelswave-adv></hotelswave-adv>
+                </div>
+                <div class="col-md-6 bg-light">
+                    <register-form *ngIf="!loading;else showLoading" [errorMessage]="errorMessage"
+                        (create)="onCreate($event)">
+                    </register-form>
+                    <ng-template #showLoading>
+                        <Loading></Loading>
+                    </ng-template>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="d-flex bd-highlight">
+    <a class="btn flex-fill btn-top btn-top-sign" routerLink="/login">Sign in</a>
+    <a class="btn flex-fill btn-top btn-top-reg">Register</a>
+</div>
+
+<div class="p-3 border">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage.length">
+        {{ errorMessage }}
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()" (mouseleave)="mouseoverShifting = false">
+        <!-- Form Elements -->
+        <FInput [fieldId]="'name'" [control]="form.get('name')"></FInput>
+        <FInput [fieldId]="'phoneNumber'" [control]="form.get('phoneNumber')" [maxlength]="11"></FInput>
+        <FInput [fieldId]="'email'" [control]="form.get('email')" [type]="'email'"></FInput>
+        <FInput [fieldId]="'password'" [control]="form.get('password')" [type]="'password'"></FInput>
+        <FCheckbox [fieldId]="'terms'" [control]="form.get('terms')"></FCheckbox>
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+            <span>Already registered ? <a href="" routerLink="/login">Login</a></span> 
+            <span (mouseenter)="mouseoverShifting = true">
+                <button type="submit" class="btn btn-sm btn-primary mx-1" [disabled]="!form.valid">Register</button>
+            </span>
+        </div>
+
+        <!-- Form validation error list -->
+        <div *ngIf="mouseoverShifting" class="text-danger">
+            <FValidation [form]="form"></FValidation>
+        </div>
+
+    </form>
+</div>

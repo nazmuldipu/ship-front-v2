@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PROTOCOL: "http",
+  PORT: ":8081",
+  SERVER: "localhost",
+  client_id: "ship_client",
+  client_secret: "ship_secret",
 };
 
 /*

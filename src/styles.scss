@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.min.css";
+@import "variables";
+
+@font-face {
+  font-family: "Bitter";
+  src: url("assets/fonts/Bitter/Bitter-Regular.ttf");
+}
+
+.bg-hotelswave {
+  background-color: $default-primary-color !important;
+}
+
+// * {
+//   font-size: 14px;
+// }

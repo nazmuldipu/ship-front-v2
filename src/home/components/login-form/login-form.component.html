@@ -1,0 +1,29 @@
+<div class="d-flex bd-highlight">
+    <a class="btn flex-fill btn-top btn-top-sign">Sign in</a>
+    <a class="btn flex-fill btn-top btn-top-reg" routerLink="/register"> Register </a>
+</div>
+
+<div class="p-3 border">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage.length">
+        {{ errorMessage }}
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()" (mouseleave)="mouseoverShifting = false">
+        <!-- Form Elements -->
+        <FInput [fieldId]="'username'" [control]="form.get('username')" [maxlength]="11"></FInput>
+        <FInput [fieldId]="'password'" [control]="form.get('password')" [type]="'password'"></FInput>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+            <a href="" routerLink="/">Forgot password?</a>
+            <span (mouseenter)="mouseoverShifting = true">
+                <button type="submit" class="btn btn-sm btn-primary mx-1" [disabled]="!form.valid">Login</button>
+            </span>
+        </div>
+
+        <!-- Form validation error list -->
+        <div *ngIf="mouseoverShifting" class="text-danger">
+            <FValidation [form]="form"></FValidation>
+        </div>
+
+    </form>
+</div>

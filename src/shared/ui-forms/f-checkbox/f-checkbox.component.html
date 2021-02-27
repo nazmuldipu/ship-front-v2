@@ -1,0 +1,8 @@
+<div class="form-group form-check" [class]="col?'':'row'">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" [id]="fieldId" [formControl]="control"
+        (change)="onValueChange($event)">
+    <label [for]="fieldId" class="d-none d-sm-block form-check-label form-check-label-sm"
+        [class]="col?'p-0':'col-sm-3'">
+        {{label}}
+    </label>
+</div>
