@@ -1,0 +1,36 @@
+@import "variables";
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.logo {
+  height: 75px;
+}
+
+.dropdown-item {
+  color: $dark-primary-color !important;
+}
+
+.navbar {
+  color: $text-primary-color;
+  background: $default-primary-color;
+  font-weight: bold;
+  // padding: 0;
+  border-bottom: 3px solid $accent-color;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.navbar a {
+  color: $text-primary-color;
+}
+
+.btn-sm {
+  background: $accent-color;
+  color: #fafafa;
+}
+
+.nav-link:hover {
+  color: $dark-primary-color !important;
+  background: $text-primary-color;
+}

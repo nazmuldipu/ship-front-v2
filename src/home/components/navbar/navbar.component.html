@@ -1,4 +1,33 @@
-<div class="container">
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
-</div>
+<nav class="navbar navbar-expand-md navbar-dark dark-primary-color">
+    <div class="container-fluid">
+        <a class="navbar-brand" (click)="toggleCollapse()" target="_blank" href="https://www.hotelswave.com">
+            <img class="logo" src="assets/images/logo.png" />
+        </a>
+        <button class="navbar-toggler" (click)="toggleCollapse()" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse show" id="navbarCollapse" [class.show]="show">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item" *ngIf="auth.isAuthenticated()">
+                    <a class="nav-link" (click)="toggleCollapse()" routerLink="/dashboard"
+                        routerLinkActive="active">Dashboard</a>
+                </li>
+                <li class="nav-item " *ngIf="!auth.isAuthenticated()">
+                    <a class="nav-link" (click)="toggleCollapse()" routerLink="/register">REGISTER</a>
+                </li>
+                <li class="nav-item " *ngIf="!auth.isAuthenticated()">
+                    <a class="nav-link" (click)="toggleCollapse()" routerLink="/login">LOGIN</a>
+                </li>
+                <li class="nav-item" *ngIf="auth.isAuthenticated()">
+                    <a class="nav-link" (click)="logout()" routerLink>LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -8,6 +8,7 @@ import { FInputComponent } from './ui-forms/f-input/f-input.component';
 import { FKeyValidatorComponent } from './ui-forms/f-key-validator/f-key-validator.component';
 import { FValidationComponent } from './ui-forms/f-validation/f-validation.component';
 import { FCheckboxComponent } from './ui-forms/f-checkbox/f-checkbox.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,13 @@ import { FCheckboxComponent } from './ui-forms/f-checkbox/f-checkbox.component';
     LoadingComponent,
     FCheckboxComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -25,6 +32,7 @@ import { FCheckboxComponent } from './ui-forms/f-checkbox/f-checkbox.component';
     FInputComponent,
     FValidationComponent,
     LoadingComponent,
+    NgbModule,
     ReactiveFormsModule,
     RouterModule,
   ],

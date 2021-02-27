@@ -1,32 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
+import { User } from 'src/shared/models/user.model';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   errorMessage = '';
   loading = false;
-  
-  constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  constructor(private userService: UserService) {}
 
-  onCreate(event) {
+  ngOnInit(): void {}
+
+  async onCreate(event: User) {
     console.log(event);
-    // this.message = null;
-    // this.userService.userRegistration(event).subscribe(
-    //   data => {
-    //     this.router.navigateByUrl('/login');
-    //   },
-    //   error => {
-    //     this.message = 'Registration Failed' + error.status;
-    //     console.log('Registration Failed' + error.status);
-    //   }
-    // );
+    try {
+      const resp = await this.userService.register(event).toPromise();
+      console.log(resp);
+    } catch ({ error }) {
+      console.log(error);
+      this.errorMessage = error.error_description;
+    }
   }
-
 }

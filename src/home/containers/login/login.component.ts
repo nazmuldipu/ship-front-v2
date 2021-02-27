@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
       const resp = await this.auth
         .authenticate(event.username, event.password)
         .toPromise();
-        console.log(resp);
+
         this.auth.saveToken(resp);
     } catch (ex) {
       const { error } = ex;
